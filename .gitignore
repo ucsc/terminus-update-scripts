@@ -1,0 +1,4 @@
+/node_modules
+/scripts/secrets.sh
+/scripts/multiple-sites/secrets.sh
+/scripts/single-site/secrets.sh
