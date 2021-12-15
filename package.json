@@ -1,0 +1,25 @@
+{
+    "name": "pantheon-terminus-update-scripts",
+    "version": "0.0.1",
+    "description": "Scripts for running terminus updates",
+    "main": "index.js",
+    "scripts": {
+        "release": "standard-version"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ucsc/pantheon-terminus-update-scripts.git"
+    },
+    "keywords": [
+        "bash"
+    ],
+    "author": "@Herm71",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ucsc/pantheon-terminus-update-scripts/issues"
+    },
+    "homepage": "https://github.com/ucsc/pantheon-terminus-update-scripts#readme",
+    "devDependencies": {
+        "standard-version": "^9.3.2"
+    }
+}
