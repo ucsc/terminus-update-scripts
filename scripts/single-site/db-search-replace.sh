@@ -4,6 +4,6 @@
 # This script uses a local `secrets.sh` file
 source secrets.sh
 SITE="$(terminus site:list --name=$SITE_NAME --format=list --field=Name)"
-# Open Live dashboard
-echo "Firing up the $SITE Live dashboard for review"
-terminus dashboard:view $SITE.live
+# Search and replace
+echo "Searching $SITE LIVE database for $WP_SEARCH to replace with $WP_REPLACE"
+terminus remote:wp --progress -- $SITE.live search-replace '$WP_SEARCH' '$WP_REPLACE' --dry-run
