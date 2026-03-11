@@ -1,6 +1,6 @@
 {
     "name": "pantheon-terminus-update-scripts",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Scripts for running terminus updates",
     "main": "index.js",
     "scripts": {
