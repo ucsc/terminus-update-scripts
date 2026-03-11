@@ -5,7 +5,7 @@
 source secrets.sh
 
 # Get site name
-SITE="$(terminus site:list --name=$SITE_NAME --format=list --field=Name)"
+SITE="$(terminus site:list --name="$SITE_NAME" --format=list --field=Name)"
 
 # Get the status of the upstream
 echo "Checking $SITE"
@@ -40,7 +40,7 @@ terminus remote:wp $SITE.dev -- theme update --all
 
 # Commit changes
 echo "Committing updates on $SITE"
-terminus env:commit $SITE.dev --message="plugin and theme updates"
+terminus env:commit $SITE.dev --note="plugin and theme updates"
 
 # Clear cache
 echo "Clearing caches on $SITE"

@@ -3,7 +3,7 @@
 # `export SITE_NAME="my-site-name"`
 # This script uses a local `secrets.sh` file
 source secrets.sh
-SITE="$(terminus site:list --name=$SITE_NAME --format=list --field=Name)"
+SITE="$(terminus site:list --name="$SITE_NAME" --format=list --field=Name)"
 # Open Live dashboard
 echo "Firing up the $SITE Live dashboard for review"
 terminus dashboard:view $SITE.live

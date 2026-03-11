@@ -3,7 +3,7 @@
 # `export SITE_NAME="my-site-name"`
 # This script uses a local `secrets.sh` file
 source secrets.sh
-SITE="$(terminus site:list --name=$SITE_NAME --format=list --field=Name)"
+SITE="$(terminus site:list --name="$SITE_NAME" --format=list --field=Name)"
 # Open Test site
 echo "Firing up the $SITE TEST environment for review"
 terminus env:view $SITE.test

@@ -9,7 +9,7 @@ PANTHEON_SITES="$(terminus org:site:list -n ${PANTHEON_ORG} --tag=ur --tag=live 
 while read -r PANTHEON_SITE_NAME; do
     # Deploy
     echo "Deploying to $PANTHEON_SITE_NAME LIVE environment"
-    terminus env:deploy $PANTHEON_SITE_NAME.live --note="plugin and theme  updates"
+    terminus env:deploy $PANTHEON_SITE_NAME.live --note="plugin and theme updates"
     
     # Clear cache
     echo "Clearing caches on $PANTHEON_SITE_NAME LIVE environment"

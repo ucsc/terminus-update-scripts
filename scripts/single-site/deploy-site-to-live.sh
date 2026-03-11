@@ -5,7 +5,7 @@
 source secrets.sh
 
 # Get site name
-SITE="$(terminus site:list --name=$SITE_NAME --format=list --field=Name)"
+SITE="$(terminus site:list --name="$SITE_NAME" --format=list --field=Name)"
 
 # Deploy
 echo "Deploying to $SITE LIVE environment"

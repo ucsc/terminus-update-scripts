@@ -1,7 +1,7 @@
 #!/bin/bash
-# Export site name as environment variable PANTHEON_ORG:
-# `export SITE_NAME="my-site-name"`
-# This script uses a local `secrets.sh` file 
+# Export org UUID as environment variable PANTHEON_ORG:
+# `export PANTHEON_ORG="my-org-uuid"`
+# This script uses a local `secrets.sh` file
 source secrets.sh
 
 # Stash list of sites
@@ -43,7 +43,7 @@ while read -r PANTHEON_SITE_NAME; do
   
   # Commit changes
   echo "Committing updates on $PANTHEON_SITE_NAME"
-  terminus env:commit $PANTHEON_SITE_NAME.dev --message="plugin and theme  updates"
+  terminus env:commit $PANTHEON_SITE_NAME.dev --note="plugin and theme updates"
   
   # Clear cache
   echo "Clearing caches on $PANTHEON_SITE_NAME"
