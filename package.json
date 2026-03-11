@@ -2,16 +2,18 @@
     "name": "pantheon-terminus-update-scripts",
     "version": "0.0.2",
     "description": "Scripts for running terminus updates",
-    "main": "index.js",
     "scripts": {
-        "release": "standard-version"
+        "release": "commit-and-tag-version"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/ucsc/pantheon-terminus-update-scripts.git"
     },
     "keywords": [
-        "bash"
+        "bash",
+        "pantheon",
+        "terminus",
+        "wordpress"
     ],
     "author": "@Herm71",
     "license": "ISC",
@@ -20,6 +22,6 @@
     },
     "homepage": "https://github.com/ucsc/pantheon-terminus-update-scripts#readme",
     "devDependencies": {
-        "standard-version": "^9.3.2"
+        "commit-and-tag-version": "^12.0.0"
     }
 }
