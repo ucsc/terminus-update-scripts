@@ -1,10 +1,10 @@
 # Terminus Update Scripts
 
-[![Terminus v1.x Compatible](https://img.shields.io/badge/terminus-v1.x-green.svg)](https://github.com/pantheon-systems/terminus-secrets-plugin/tree/1.x)
+[![Terminus v3.x Compatible](https://img.shields.io/badge/terminus-v3.x-green.svg)](https://github.com/pantheon-systems/terminus)
 
 A set of `bash` scripts for "mass updating" sites on Pantheon using Terminus. These scripts are tooled for WordPress sites but can easily be repurposed for Drupal sites.  While there is a [Terminus Mass Update](https://github.com/pantheon-systems/terminus-mass-update) plugin, these scripts rely solely on base terminus commands; no additional plugins necessary. However, these scripts require setting  `ENVIRONMENT_VARIABLES` to store "secrets". I chose to put them in a local file that is not included in this repository. You may view a reference to it in the scripts. Directions for setting the environment variables are provided below.
 
-## Reqiurements
+## Requirements
 
 - requirement: [terminus](https://pantheon.io/docs/terminus)  
 - optional: [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) for installing a local version of [standard-version](https://github.com/conventional-changelog/standard-version)  
@@ -14,7 +14,7 @@ A set of `bash` scripts for "mass updating" sites on Pantheon using Terminus. Th
 
 There are two sets of scripts in this repo, a set for updating multiple sites and a set for updating a single site. Each set of scripts consists of three scripts, each script addressing either the `dev`, `test` or `live` Pantheon Environments.
 
-The following is a list of the scripts included and a brief description of each does. These scripts should generally be run in the order listed below:
+The following is a list of the scripts included and a brief description of what each does. These scripts should generally be run in the order listed below:
 
 1. **Update `dev`** `update-site-dev.sh` or `update-sites-dev.sh`  
   **Update core `<site>.<dev>`:**  
@@ -34,17 +34,22 @@ The following is a list of the scripts included and a brief description of each 
 -- clear all caches  
 -- open all `<site>.<test>` environments in browser tabs for review
 
-3. `deploy-to-live.sh`  
-Does exactly the same tha **Script 2** does, except deploys from `<site>.<test>` to `<site>.<live>`.
+3. **Deploy from `<site>.<test>` to `<site>.<live>`:** `deploy-site-to-live.sh` or `deploy-sites-to-live.sh`  
+Does exactly the same that **Script 2** does, except deploys from `<site>.<test>` to `<site>.<live>`.
+
+4. **Search and replace in database:** `db-search-replace.sh` *(single-site only)*  
+-- performs a WP-CLI `search-replace` on the live database  
+-- runs in `--dry-run` mode by default — remove that flag to apply changes  
+-- requires `WP_SEARCH` and `WP_REPLACE` to be set in `secrets.sh`
 
 ## Set environment variables
 
-I use a local script named `secrets.sh` placed in the same directory as the scripts. This is where the environment variables are set. To do similar, create a new file in each of the script directories:
+I use a local script named `secrets.sh` placed in the same directory as the scripts. This is where the environment variables are set. Each script directory includes a `secrets.sh.example` file — copy it and fill in your values:
 
 ```bash
-touch /my-scripts-location/multiple-sites/secrets.sh
+cp scripts/multiple-sites/secrets.sh.example scripts/multiple-sites/secrets.sh
 
-touch /my-scripts-location/single-site/secrets.sh
+cp scripts/single-site/secrets.sh.example scripts/single-site/secrets.sh
 ```
 
 ### Multiple sites
@@ -65,14 +70,18 @@ The `SITE_NAME` **environment variable** is used for updating single sites. Into
 #!/bin/bash
 # Stash site name
 export SITE_NAME="my-site-name"
+
+# Required for db-search-replace.sh only
+export WP_SEARCH="https://old-domain.com"
+export WP_REPLACE="https://new-domain.com"
 ```
 
 ### Make scripts executable
 
 ```bash
-sudo chmod +x /my-scripts-location/multiple-sites/secrets.sh
+chmod +x scripts/multiple-sites/*.sh
 
-sudo chmod +x /my-scripts-location/single-site/secrets.sh
+chmod +x scripts/single-site/*.sh
 ```
 
 ## Run scripts
@@ -81,7 +90,7 @@ Once the environment variables are set, the scripts should be run in the order d
 
 ```bash
 # note: let each script complete before running the next
-user@machine:~$ ./update-sites-to-dev.sh
+user@machine:~$ ./update-sites-dev.sh
 
 user@machine:~$ ./deploy-sites-to-test.sh
 
