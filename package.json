@@ -1,13 +1,13 @@
 {
     "name": "pantheon-terminus-update-scripts",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Scripts for running terminus updates",
     "scripts": {
         "release": "commit-and-tag-version"
     },
     "repository": {
         "type": "git",
-				"url": "git+https://github.com/ucsc/terminus-update-scripts.git"
+        "url": "git+https://github.com/ucsc/terminus-update-scripts.git"
     },
     "keywords": [
         "bash",
@@ -18,9 +18,9 @@
     "author": "@Herm71",
     "license": "ISC",
     "bugs": {
-				"url": "https://github.com/ucsc/terminus-update-scripts/issues"
+        "url": "https://github.com/ucsc/terminus-update-scripts/issues"
     },
-		"homepage": "https://github.com/ucsc/terminus-update-scripts#readme",
+    "homepage": "https://github.com/ucsc/terminus-update-scripts#readme",
     "devDependencies": {
         "commit-and-tag-version": "^12.0.0"
     }
