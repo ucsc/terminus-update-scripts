@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.6](https://github.com/ucsc/terminus-update-scripts/compare/v0.0.5...v0.0.6) (2026-03-12)
+
+
+### Features
+
+* add CLAUDE.md for guidance on using scripts and deployment process ([f65570c](https://github.com/ucsc/terminus-update-scripts/commit/f65570cb8859bf0e767e04ed429b1679520b0174))
+
+
+### Bug Fixes
+
+* update comments and correct commit message flag in update-site-dev.sh ([d42b2a7](https://github.com/ucsc/terminus-update-scripts/commit/d42b2a7fcf36582ca1abaa13b3663dd6607321c9))
+
 ## [0.0.5](https://github.com/ucsc/terminus-update-scripts/compare/v0.0.4...v0.0.5) (2026-03-12)
 
 

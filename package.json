@@ -1,6 +1,6 @@
 {
     "name": "pantheon-terminus-update-scripts",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "Scripts for running terminus updates",
     "scripts": {
         "release": "commit-and-tag-version"
