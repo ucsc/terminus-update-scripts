@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.5](https://github.com/ucsc/terminus-update-scripts/compare/v0.0.4...v0.0.5) (2026-03-12)
+
+
+### Features
+
+* add GitHub Actions workflow for automated release creation ([311ac29](https://github.com/ucsc/terminus-update-scripts/commit/311ac29a51740674679040063c1ad8677dce7025))
+
 ## [0.0.4](https://github.com/ucsc/terminus-update-scripts/compare/v0.0.3...v0.0.4) (2026-03-12)
 
 ## [0.0.3](https://github.com/ucsc/terminus-update-scripts/compare/v0.0.2...v0.0.3) (2026-03-11)
