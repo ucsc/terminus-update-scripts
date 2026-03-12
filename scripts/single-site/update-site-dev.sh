@@ -21,8 +21,8 @@ terminus connection:set $SITE.dev git
 echo "Applying upstream updates"
 terminus upstream:updates:apply --accept-upstream --yes -- $SITE.dev
 
-# Reset to sftp mode
-echo "Resetting connection to sftp"
+# Set to sftp mode
+echo "Setting environment to sftp mode"
 terminus connection:set $SITE.dev sftp
 
 # Clear cache
@@ -40,11 +40,15 @@ terminus remote:wp $SITE.dev -- theme update --all
 
 # Commit changes
 echo "Committing updates on $SITE"
-terminus env:commit $SITE.dev --note="plugin and theme updates"
+terminus env:commit $SITE.dev --message="plugin and theme updates"
 
 # Clear cache
 echo "Clearing caches on $SITE"
 terminus env:clear-cache $SITE.dev
+
+# Set connection back to git mode
+echo "Setting environment back to git mode"
+terminus connection:set $SITE.dev git
 
 # Open Dev site
 echo "Firing up the dev environment on $SITE"
